@@ -6,8 +6,9 @@ import Carrer from './Components/Carrer';
 import Portfolio from './Components/Portfolio';
 import Links from './Components/Links';
 import NotFound from './Components/NotFound';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from './GlobalStyles';
+import theme from './Theme';
 
 const Body = styled.div`
   padding-top: 140px;
@@ -20,11 +21,14 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Fragment>
-          <GlobalStyles />
-          <Header />
+          <ThemeProvider theme={theme}>
+            <Header />
+          </ThemeProvider>
           <Body>
             <Switch>
-              <Route path="/" exact component={About} />
+              <ThemeProvider theme={theme}>
+                <Route path="/" exact component={About} />
+              </ThemeProvider>
               <Route path="/about" component={About} />
               <Route path="/carrer" component={Carrer} />
               <Route path="/portfolio" component={Portfolio} />
@@ -32,6 +36,7 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
           </Body>
+          <GlobalStyles />
         </Fragment>
       </BrowserRouter>
     );
