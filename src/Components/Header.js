@@ -68,7 +68,7 @@ export default () => (
       </NameContainer>
       <MenuContainer>
         <MenuLink to="/about">About</MenuLink>
-        <MenuLink to="/carrer">Carrer</MenuLink>
+        <MenuLink to="/career">Career</MenuLink>
         <MenuLink to="/portfolio">Portfolio</MenuLink>
         <MenuLink to="/links">Links</MenuLink>
         <MenuLine />
