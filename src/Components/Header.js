@@ -42,6 +42,7 @@ const MenuLink = styled(Link)`
   text-decoration: none;
   height: 50px;
   width: 80px;
+  font-size: 16px;
   &:not(:last-child) {
     margin-right: 10px;
   }

@@ -7,6 +7,7 @@ import Portfolio from './Components/Portfolio';
 import Links from './Components/Links';
 import NotFound from './Components/NotFound';
 import styled from 'styled-components';
+import GlobalStyles from './GlobalStyles';
 
 const Body = styled.div`
   padding-top: 140px;
@@ -19,6 +20,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Fragment>
+          <GlobalStyles />
           <Header />
           <Body>
             <Switch>
