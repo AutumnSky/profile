@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import theme from '../Theme';
 
 const Container = styled.div`
   position: fixed;
@@ -59,17 +60,19 @@ const MenuLine = styled.div`
 `;
 
 export default () => (
-  <Container>
-    <NameContainer>
-      <Name>Minjeong Kim</Name>
-      <NickName>(autumn)</NickName>
-    </NameContainer>
-    <MenuContainer>
-      <MenuLink to="/about">About</MenuLink>
-      <MenuLink to="/carrer">Carrer</MenuLink>
-      <MenuLink to="/portfolio">Portfolio</MenuLink>
-      <MenuLink to="/links">Links</MenuLink>
-      <MenuLine />
-    </MenuContainer>
-  </Container>
+  <ThemeProvider theme={theme}>
+    <Container>
+      <NameContainer>
+        <Name>Minjeong Kim</Name>
+        <NickName>(autumn)</NickName>
+      </NameContainer>
+      <MenuContainer>
+        <MenuLink to="/about">About</MenuLink>
+        <MenuLink to="/carrer">Carrer</MenuLink>
+        <MenuLink to="/portfolio">Portfolio</MenuLink>
+        <MenuLink to="/links">Links</MenuLink>
+        <MenuLine />
+      </MenuContainer>
+    </Container>
+  </ThemeProvider>
 );
