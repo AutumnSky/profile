@@ -1,55 +1,32 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import CareerCompany from './CareerCompany';
+import CareerEducation from './CareerEducation';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from 'Theme';
 
-const StyledUl = styled.ul``;
-
-const StyledLi = styled.li`margin-bottom: 40px;`;
-
-const ItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ItemHeader = styled.span`
-  color: ${(props) => props.theme.main};
-  font-size: 22px;
+const Title = styled.h3`
+  font-size: 25px;
+  color: ${(props) => props.theme.mainDark};
   font-weight: 600;
-  margin-bottom: 20px;
 `;
 
-const ItemYear = styled.span`
-  color: ${(props) => props.theme.fontDesc};
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 20px;
-  margin-bottom: 10px;
-`;
-
-const ItemRole = styled.p`
-  color: ${(props) => props.theme.fontDesc};
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 20px;
+const Item = styled.div`
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 `;
 
 export default () => (
   <ThemeProvider theme={theme}>
-    <StyledUl>
-      <StyledLi>
-        <ItemContainer>
-          <ItemHeader>Layer Lab</ItemHeader>
-          <ItemYear>December 2013 - July 2016</ItemYear>
-          <ItemRole>iOS, Android, Unity 2D</ItemRole>
-        </ItemContainer>
-      </StyledLi>
-      <StyledLi>
-        <ItemContainer>
-          <ItemHeader>Motion Blue</ItemHeader>
-          <ItemYear>May 2011 - May 2013</ItemYear>
-          <ItemRole>iOS, Android</ItemRole>
-        </ItemContainer>
-      </StyledLi>
-    </StyledUl>
+    <Fragment>
+      <Title>Work History</Title>
+      <Item>
+        <CareerCompany />
+      </Item>
+      <Title>Education</Title>
+      <Item>
+        <CareerEducation />
+      </Item>
+    </Fragment>
   </ThemeProvider>
 );
