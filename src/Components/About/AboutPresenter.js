@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => 'About';
+export default () => <a href="/about">about</a>;
