@@ -13,6 +13,7 @@ const Body = styled.div`
   padding-top: 140px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 30px;
 `;
 
 class App extends Component {
