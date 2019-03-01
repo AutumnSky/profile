@@ -6,5 +6,6 @@ export default {
   fontLight: '#dcdde1',
   fontDesc: '#353b48',
   fontTitle: '#2f3640',
+  fontWarning: '#e84118',
   portfolioBackground: '#f5f6fa'
 };

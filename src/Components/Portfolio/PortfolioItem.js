@@ -39,7 +39,7 @@ const PortfolioItem = ({ data }) => (
     ) : (
       <NotFoundImage src={require('assets/portfolio/_default.png')} />
     )}
-    <ProjectName>{data.projectName}</ProjectName>
+    <ProjectName>{data.projectName.ko}</ProjectName>
   </Container>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../Theme';
@@ -47,32 +48,46 @@ const MenuLink = styled(Link)`
   &:not(:last-child) {
     margin-right: 10px;
   }
+
+  border-bottom: 5px solid ${(props) => (props.isCurrent ? 'rgba(255, 255, 255, 0.7)' : 'transparent')};
 `;
 
-const MenuLine = styled.div`
-  width: 80px;
-  height: 5px;
-  background-color: ${(props) => props.theme.fontLight};
-  opacity: 0.8;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-`;
+// const MenuLine = styled.div`
+//   width: 80px;
+//   height: 5px;
+//   background-color: ${(props) => props.theme.fontLight};
+//   opacity: 0.8;
+//   position: absolute;
+//   left: 0;
+//   bottom: 0;
+// `;
 
-export default () => (
-  <ThemeProvider theme={theme}>
-    <Container>
-      <NameContainer>
-        <Name>Minjeong Kim</Name>
-        <NickName>(autumn)</NickName>
-      </NameContainer>
-      <MenuContainer>
-        <MenuLink to="/about">About</MenuLink>
-        <MenuLink to="/career">Career</MenuLink>
-        <MenuLink to="/portfolio">Portfolio</MenuLink>
-        <MenuLink to="/links">Links</MenuLink>
-        <MenuLine />
-      </MenuContainer>
-    </Container>
-  </ThemeProvider>
-);
+export default withRouter((props) => {
+  const { location: { pathname } } = props;
+  return (
+    <ThemeProvider theme={theme}>
+      <Container>
+        <NameContainer>
+          <Link to="/">
+            <Name>Minjeong Kim</Name>
+            <NickName>(autumn)</NickName>
+          </Link>
+        </NameContainer>
+        <MenuContainer>
+          <MenuLink to="/about" isCurrent={pathname === '/' || pathname.includes('about')}>
+            About
+          </MenuLink>
+          <MenuLink to="/career" isCurrent={pathname.includes('career')}>
+            Career
+          </MenuLink>
+          <MenuLink to="/portfolio" isCurrent={pathname.includes('portfolio')}>
+            Portfolio
+          </MenuLink>
+          <MenuLink to="/links" isCurrent={pathname.includes('links')}>
+            Links
+          </MenuLink>
+        </MenuContainer>
+      </Container>
+    </ThemeProvider>
+  );
+});

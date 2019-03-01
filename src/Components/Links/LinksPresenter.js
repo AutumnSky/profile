@@ -16,7 +16,7 @@ const ItemHeader = styled.div`
   margin-bottom: 20px;
 `;
 
-const ItemContent = styled.div`
+const ItemLink = styled.a`
   color: ${(props) => props.theme.fontDesc};
   font-size: 18px;
   font-weight: 500;
@@ -28,26 +28,40 @@ export default () => (
     <StyledUl>
       <StyledLi>
         <ItemContainer>
+          <ItemHeader>Linked In</ItemHeader>
+          <ItemLink href="https://www.linkedin.com/in/autumnsky" target="_blank">
+            https://www.linkedin.com/in/autumnsky
+          </ItemLink>
+        </ItemContainer>
+      </StyledLi>
+      <StyledLi>
+        <ItemContainer>
           <ItemHeader>Github</ItemHeader>
-          <ItemContent>https://github.com/autumnsky</ItemContent>
+          <ItemLink href="https://github.com/autumnsky" target="_blank">
+            https://github.com/autumnsky
+          </ItemLink>
         </ItemContainer>
       </StyledLi>
       <StyledLi>
         <ItemContainer>
           <ItemHeader>Blog</ItemHeader>
-          <ItemContent>https://blog.naver.com/capu1004</ItemContent>
+          <ItemLink href="https://blog.naver.com/capu1004" target="_blank">
+            https://blog.naver.com/capu1004
+          </ItemLink>
         </ItemContainer>
       </StyledLi>
       <StyledLi>
         <ItemContainer>
           <ItemHeader>Tech Note</ItemHeader>
-          <ItemContent>https://cafe.naver.com/lolmzkim</ItemContent>
+          <ItemLink href="https://cafe.naver.com/lolmzkim" target="_blank">
+            https://cafe.naver.com/lolmzkim
+          </ItemLink>
         </ItemContainer>
       </StyledLi>
       <StyledLi>
         <ItemContainer>
           <ItemHeader>Youtube</ItemHeader>
-          <ItemContent>https://www.youtube.com/user/capu1004</ItemContent>
+          <ItemLink href="https://cafe.naver.com/lolmzkim">https://www.youtube.com/user/capu1004</ItemLink>
         </ItemContainer>
       </StyledLi>
     </StyledUl>
