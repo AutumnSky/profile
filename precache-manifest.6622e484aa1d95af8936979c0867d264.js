@@ -376,7 +376,7 @@ self.__precacheManifest = [
     "url": "/profile/static/media/pageNotFound.022ccf6c.png"
   },
   {
-    "revision": "82650f31840f2c7978d760abfea0653b",
+    "revision": "bc27d1418dddb687c66bccf8df44f37d",
     "url": "/profile/index.html"
   }
 ];
