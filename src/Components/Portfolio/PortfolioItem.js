@@ -37,7 +37,7 @@ const PortfolioItem = ({ data }) => (
     {data.screenshot.length > 0 ? (
       <Image src={require(`assets/portfolio/${data.screenshot[0]}`)} />
     ) : (
-      <NotFoundImage src={require('assets/portfolio/_default.png')} />
+      <NotFoundImage src={require('assets/portfolio/default.png')} />
     )}
     <ProjectName>{data.projectName.ko}</ProjectName>
   </Container>
