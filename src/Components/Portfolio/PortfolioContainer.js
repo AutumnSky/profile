@@ -49,7 +49,7 @@ class PortfolioContainer extends React.Component {
       <React.Fragment>
         {isLoading && <Loader />}
         {error && <Message message={error} />}
-        <PortfolioPresenter {...this.state} />;
+        <PortfolioPresenter {...this.state} />
       </React.Fragment>
     );
   }
