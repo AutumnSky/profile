@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://profile.autumnpage.com/',
+  baseURL: 'https://profile.autumnpage.com/',
   timeout: 1000
 });
 
