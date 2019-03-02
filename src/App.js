@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Components/Header';
 import About from './Components/About';
 import Career from './Components/Career';
@@ -19,22 +19,22 @@ const Body = styled.div`
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <Fragment>
           <Header />
           <Body>
             <Switch>
-              <Route path="/" exact component={About} />
-              <Route path="/about" component={About} />
-              <Route path="/career" component={Career} />
+              <Route path="/" exact component={Portfolio} />
               <Route path="/portfolio" component={Portfolio} />
+              <Route path="/career" component={Career} />
+              <Route path="/about" component={About} />
               <Route path="/links" component={Links} />
               <Route component={NotFound} />
             </Switch>
           </Body>
           <GlobalStyles />
         </Fragment>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

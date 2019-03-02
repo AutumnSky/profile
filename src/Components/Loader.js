@@ -1,0 +1,1 @@
+export default () => 'Now Loading...';

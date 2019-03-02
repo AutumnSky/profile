@@ -49,7 +49,7 @@ const MenuLink = styled(Link)`
     margin-right: 10px;
   }
 
-  border-bottom: 5px solid ${(props) => (props.isCurrent ? 'rgba(255, 255, 255, 0.7)' : 'transparent')};
+  border-bottom: 5px solid ${(props) => (props.isCurrentPage === true ? 'rgba(255, 255, 255, 0.7)' : 'transparent')};
 `;
 
 // const MenuLine = styled.div`
@@ -64,6 +64,7 @@ const MenuLink = styled(Link)`
 
 export default withRouter((props) => {
   const { location: { pathname } } = props;
+
   return (
     <ThemeProvider theme={theme}>
       <Container>
@@ -74,16 +75,16 @@ export default withRouter((props) => {
           </Link>
         </NameContainer>
         <MenuContainer>
-          <MenuLink to="/about" isCurrent={pathname === '/' || pathname.includes('about')}>
-            About
-          </MenuLink>
-          <MenuLink to="/career" isCurrent={pathname.includes('career')}>
-            Career
-          </MenuLink>
-          <MenuLink to="/portfolio" isCurrent={pathname.includes('portfolio')}>
+          <MenuLink to="/portfolio" isCurrentPage={pathname === '/' || pathname.includes('portfolio')}>
             Portfolio
           </MenuLink>
-          <MenuLink to="/links" isCurrent={pathname.includes('links')}>
+          <MenuLink to="/career" isCurrentPage={pathname.includes('career')}>
+            Career
+          </MenuLink>
+          <MenuLink to="/about" isCurrentPage={pathname.includes('about')}>
+            About
+          </MenuLink>
+          <MenuLink to="/links" isCurrentPage={pathname.includes('links')}>
             Links
           </MenuLink>
         </MenuContainer>

@@ -1,11 +1,15 @@
 import React from 'react';
 import PortfolioPresenter from './PortfolioPresenter';
 import * as api from 'api';
+import Loader from '../Loader';
+import Message from '../Message';
 
 class PortfolioContainer extends React.Component {
   state = {
     portfolioData: {},
-    yearList: []
+    yearList: [],
+    isLoading: true,
+    error: null
   };
 
   componentDidMount() {
@@ -13,27 +17,41 @@ class PortfolioContainer extends React.Component {
   }
 
   loadData = async () => {
-    const { data: portfolioList } = await api.portfolio();
+    try {
+      this.setState({ isLoading: true });
+      const { data: portfolioList } = await api.portfolio();
 
-    let yearList = [];
-    const portfolioData = portfolioList.reduce((totalData, currentData) => {
-      const key = currentData['year'];
-      if (!totalData[key]) {
-        yearList.push(key);
-        totalData[key] = [];
-      }
-      totalData[key].push(currentData);
-      return totalData;
-    }, {});
+      let yearList = [];
+      const portfolioData = portfolioList.reduce((totalData, currentData) => {
+        const key = currentData['year'];
+        if (!totalData[key]) {
+          yearList.push(key);
+          totalData[key] = [];
+        }
+        totalData[key].push(currentData);
+        return totalData;
+      }, {});
 
-    this.setState({
-      portfolioData,
-      yearList
-    });
+      this.setState({
+        portfolioData,
+        yearList
+      });
+    } catch (error) {
+      this.setState({ error: error });
+    } finally {
+      this.setState({ isLoading: false });
+    }
   };
 
   render() {
-    return <PortfolioPresenter {...this.state} />;
+    const { isLoading, error } = this.state;
+    return (
+      <React.Fragment>
+        {isLoading && <Loader />}
+        {error && <Message message={error} />}
+        <PortfolioPresenter {...this.state} />;
+      </React.Fragment>
+    );
   }
 }
 
