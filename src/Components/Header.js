@@ -36,20 +36,24 @@ const MenuContainer = styled.div`
   padding: 0px 30px;
 `;
 
-const MenuLink = styled(Link)`
+const MenuItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.fontLight};
-  text-decoration: none;
   height: 50px;
   width: 80px;
-  font-size: 16px;
   &:not(:last-child) {
     margin-right: 10px;
   }
 
-  border-bottom: 5px solid ${(props) => (props.isCurrentPage === true ? 'rgba(255, 255, 255, 0.7)' : 'transparent')};
+  border-bottom: 5px solid ${(props) => (props.isCurrent ? 'rgba(255, 255, 255, 0.7)' : 'transparent')};
+  transition: border-bottom 0.3s ease-in-out;
+`;
+
+const SLink = styled(Link)`
+  color: ${(props) => props.theme.fontLight};
+  text-decoration: none;
+  font-size: 16px;
 `;
 
 // const MenuLine = styled.div`
@@ -75,18 +79,18 @@ export default withRouter((props) => {
           </Link>
         </NameContainer>
         <MenuContainer>
-          <MenuLink to="/portfolio" isCurrentPage={pathname === '/' || pathname.includes('portfolio')}>
-            Portfolio
-          </MenuLink>
-          <MenuLink to="/career" isCurrentPage={pathname.includes('career')}>
-            Career
-          </MenuLink>
-          <MenuLink to="/about" isCurrentPage={pathname.includes('about')}>
-            About
-          </MenuLink>
-          <MenuLink to="/links" isCurrentPage={pathname.includes('links')}>
-            Links
-          </MenuLink>
+          <MenuItem isCurrent={pathname === '/' || pathname.includes('portfolio')}>
+            <SLink to="/portfolio">Portfolio</SLink>
+          </MenuItem>
+          <MenuItem isCurrent={pathname.includes('career')}>
+            <SLink to="/career">Career</SLink>
+          </MenuItem>
+          <MenuItem isCurrent={pathname.includes('about')}>
+            <SLink to="/about">About</SLink>
+          </MenuItem>
+          <MenuItem isCurrent={pathname.includes('links')}>
+            <SLink to="/links">Links</SLink>
+          </MenuItem>
         </MenuContainer>
       </Container>
     </ThemeProvider>
