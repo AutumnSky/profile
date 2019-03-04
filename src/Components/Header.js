@@ -54,6 +54,7 @@ const SLink = styled(Link)`
   color: ${(props) => props.theme.fontLight};
   text-decoration: none;
   font-size: 16px;
+  text-align: center;
 `;
 
 // const MenuLine = styled.div`
@@ -81,6 +82,9 @@ export default withRouter((props) => {
         <MenuContainer>
           <MenuItem isCurrent={pathname === '/' || pathname.includes('career')}>
             <SLink to="/career">Career</SLink>
+          </MenuItem>
+          <MenuItem isCurrent={pathname.includes('personalproject')}>
+            <SLink to="/personalproject">Personal Proejct</SLink>
           </MenuItem>
           <MenuItem isCurrent={pathname.includes('portfolio')}>
             <SLink to="/portfolio">Portfolio</SLink>

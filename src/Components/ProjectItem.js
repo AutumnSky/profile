@@ -39,7 +39,7 @@ const ProjectItem = ({ data }) => (
     ) : (
       <NotFoundImage src={`${process.env.REACT_APP_IMG_PATH}/default.png`} />
     )}
-    <ProjectName>{data.projectName.ko}</ProjectName>
+    <ProjectName>{data.projectName.en}</ProjectName>
   </Container>
 );
 
