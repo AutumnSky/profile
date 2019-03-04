@@ -19,7 +19,7 @@ class PortfolioContainer extends React.Component {
   loadData = async () => {
     try {
       this.setState({ isLoading: true });
-      const { data: portfolioList } = await api.portfolio();
+      const { data: portfolioList } = await api.getPortfolios();
 
       let yearList = [];
       const portfolioData = portfolioList.reduce((totalData, currentData) => {

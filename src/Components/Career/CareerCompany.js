@@ -41,6 +41,13 @@ export default () => (
     <StyledUl>
       <StyledLi>
         <ItemContainer>
+          <ItemHeader>Freelancer</ItemHeader>
+          <ItemYear>July 2016 - Present</ItemYear>
+          <ItemRole>Learning FullStack, iOS, Android, Unity 2D</ItemRole>
+        </ItemContainer>
+      </StyledLi>
+      <StyledLi>
+        <ItemContainer>
           <ItemHeader>Layer Lab</ItemHeader>
           <ItemYear>December 2013 - July 2016</ItemYear>
           <ItemRole>iOS, Android, Unity 2D</ItemRole>

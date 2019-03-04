@@ -5,4 +5,8 @@ const api = axios.create({
   timeout: 1000
 });
 
-export const portfolio = () => api.get('portfolio');
+export const getPortfolios = () => api.get('portfolios');
+
+export const getWorkPortfolios = () => api.get('workportfolios');
+
+export const getPersonalProjects = () => api.get('personalprojects');

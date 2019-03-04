@@ -32,19 +32,19 @@ const ProjectName = styled.h4`
   margin-bottom: 10px;
 `;
 
-const PortfolioItem = ({ data }) => (
+const ProjectItem = ({ data }) => (
   <Container>
     {data.screenshot.length > 0 ? (
-      <Image src={require(`assets/portfolio/${data.screenshot[0]}`)} />
+      <Image src={`${process.env.REACT_APP_IMG_PATH}/${data.screenshot[0]}`} />
     ) : (
-      <NotFoundImage src={require('assets/portfolio/default.png')} />
+      <NotFoundImage src={`${process.env.REACT_APP_IMG_PATH}/default.png`} />
     )}
     <ProjectName>{data.projectName.ko}</ProjectName>
   </Container>
 );
 
-PortfolioItem.propTypes = {
+ProjectItem.propTypes = {
   data: propTypes.object.isRequired
 };
 
-export default PortfolioItem;
+export default ProjectItem;
