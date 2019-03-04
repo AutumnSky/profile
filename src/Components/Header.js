@@ -88,9 +88,6 @@ export default withRouter((props) => {
           <MenuItem isCurrent={pathname.includes('about')}>
             <SLink to="/about">About</SLink>
           </MenuItem>
-          <MenuItem isCurrent={pathname.includes('links')}>
-            <SLink to="/links">Links</SLink>
-          </MenuItem>
         </MenuContainer>
       </Container>
     </ThemeProvider>

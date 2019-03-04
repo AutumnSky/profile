@@ -6,8 +6,7 @@ import Message from '../Message';
 
 class PortfolioContainer extends React.Component {
   state = {
-    portfolioData: {},
-    yearList: [],
+    data: null,
     isLoading: true,
     error: null
   };
@@ -18,24 +17,8 @@ class PortfolioContainer extends React.Component {
 
   loadData = async () => {
     try {
-      this.setState({ isLoading: true });
-      const { data: portfolioList } = await api.getPortfolios();
-
-      let yearList = [];
-      const portfolioData = portfolioList.reduce((totalData, currentData) => {
-        const key = currentData['year'];
-        if (!totalData[key]) {
-          yearList.push(key);
-          totalData[key] = [];
-        }
-        totalData[key].push(currentData);
-        return totalData;
-      }, {});
-
-      this.setState({
-        portfolioData,
-        yearList
-      });
+      const { data } = await api.getPortfolios();
+      this.setState({ data });
     } catch (error) {
       this.setState({ error: error });
     } finally {
@@ -44,12 +27,13 @@ class PortfolioContainer extends React.Component {
   };
 
   render() {
-    const { isLoading, error } = this.state;
+    const { isLoading, error, data } = this.state;
+
     return (
       <React.Fragment>
         {isLoading && <Loader />}
         {error && <Message message={error} />}
-        <PortfolioPresenter {...this.state} />
+        {data && <PortfolioPresenter data={data} />}
       </React.Fragment>
     );
   }

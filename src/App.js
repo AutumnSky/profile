@@ -4,7 +4,6 @@ import Header from './Components/Header';
 import About from './Components/About';
 import Career from './Components/Career';
 import Portfolio from './Components/Portfolio';
-import Links from './Components/Links';
 import NotFound from './Components/NotFound';
 import styled from 'styled-components';
 import GlobalStyles from './GlobalStyles';
@@ -25,10 +24,9 @@ class App extends Component {
           <Body>
             <Switch>
               <Route path="/" exact component={Portfolio} />
-              <Route path="/portfolio" component={Portfolio} />
               <Route path="/career" component={Career} />
+              <Route path="/portfolio" component={Portfolio} />
               <Route path="/about" component={About} />
-              <Route path="/links" component={Links} />
               <Route component={NotFound} />
             </Switch>
           </Body>

@@ -1,17 +1,19 @@
-// import React from 'react';
-// import PortfolioSection from './PortfolioSection';
-// import { ThemeProvider } from 'styled-components';
-// import theme from 'Theme';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import theme from 'Theme';
+import ProjectList from '../ProjectList';
+import propTypes from 'prop-types';
 
-// export default ({ yearList, portfolioData }) => {
-//   const sortedYear = yearList.sort((a, b) => b - a);
-//   return (
-//     <ThemeProvider theme={theme}>
-//       <React.Fragment>
-//         {sortedYear.map((year) => <PortfolioSection key={year} year={year} portfolioList={portfolioData[year]} />)}
-//       </React.Fragment>
-//     </ThemeProvider>
-//   );
-// };
+const PortfolioPresenter = ({ data }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <ProjectList data={data} />
+    </ThemeProvider>
+  );
+};
 
-export default () => 'Project Presenter';
+PortfolioPresenter.propTypes = {
+  data: propTypes.array.isRequired
+};
+
+export default PortfolioPresenter;

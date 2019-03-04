@@ -77,17 +77,6 @@ const CareerPresenter = ({ data }) => {
           </ItemContainer>
         </StyledLi>
       </StyledUl>
-
-      {/* <Fragment>
-        <Title>Work History</Title>
-        <Item>
-          <CareerCompany />
-        </Item>
-        <Title>Education</Title>
-        <Item>
-          <CareerEducation />
-        </Item>
-      </Fragment> */}
     </ThemeProvider>
   );
 };
