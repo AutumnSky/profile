@@ -6,24 +6,37 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
   background-color: ${(props) => props.theme.portfolioBackground};
   border-radius: 10px;
-  padding: 10px;
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Image = styled.img`
   max-width: 100%;
-  max-height: 300px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  max-height: 100%;
+  border-radius: 10px;
 `;
 
-const NotFoundImage = styled.img`
-  max-width: 100%;
-  height: 200px;
+const NotFoundImageContainer = styled.div`
+  width: 100%;
+  height: 300px;
   margin-bottom: 20px;
-  border-radius: 5px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
+const NotFoundImage = styled.img`height: 100%;`;
 
 const ProjectName = styled.h4`
   color: ${(props) => props.theme.fontTitle};
@@ -35,9 +48,13 @@ const ProjectName = styled.h4`
 const ProjectItem = ({ data }) => (
   <Container>
     {data.screenshot.length > 0 ? (
-      <Image src={`${process.env.REACT_APP_IMG_PATH}/${data.screenshot[0]}`} />
+      <ImageContainer>
+        <Image src={`${process.env.REACT_APP_IMG_PATH}/${data.screenshot[0]}`} />
+      </ImageContainer>
     ) : (
-      <NotFoundImage src={`${process.env.REACT_APP_IMG_PATH}/default.png`} />
+      <NotFoundImageContainer>
+        <NotFoundImage src={`${process.env.REACT_APP_IMG_PATH}/default.png`} alt="noimage" />
+      </NotFoundImageContainer>
     )}
     <ProjectName>{data.projectName.en}</ProjectName>
   </Container>

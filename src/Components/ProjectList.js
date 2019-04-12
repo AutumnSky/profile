@@ -5,9 +5,9 @@ import ProjectItem from './ProjectItem';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 350px);
-  grid-gap: 14px;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
 `;
 
 const ProjectList = ({ data }) => (
