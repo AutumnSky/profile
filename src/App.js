@@ -6,6 +6,7 @@ import PersonalProject from './Components/PersonalProject';
 import Career from './Components/Career';
 import Portfolio from './Components/Portfolio';
 import NotFound from './Components/NotFound';
+import ProjectDetail from './Components/ProjectDetail';
 import styled from 'styled-components';
 import GlobalStyles from './GlobalStyles';
 
@@ -29,6 +30,7 @@ class App extends Component {
               <Route path="/personalproject" component={PersonalProject} />
               <Route path="/portfolio" component={Portfolio} />
               <Route path="/about" component={About} />
+              <Route path="/detail/:type/:id" component={ProjectDetail} />
               <Route component={NotFound} />
             </Switch>
           </Body>

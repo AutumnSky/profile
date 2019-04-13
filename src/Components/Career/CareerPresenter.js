@@ -57,7 +57,7 @@ const CareerPresenter = ({ data }) => {
             <ItemHeader>Freelancer</ItemHeader>
             <ItemYear>July 2016 - Present</ItemYear>
             <ItemRole>Learning FullStack, iOS, Android, Unity 2D</ItemRole>
-            <ProjectList data={result['freelancer']} />
+            <ProjectList data={result['freelancer']} dataType="career" />
           </ItemContainer>
         </StyledLi>
         <StyledLi>
@@ -65,7 +65,7 @@ const CareerPresenter = ({ data }) => {
             <ItemHeader>Layer Lab</ItemHeader>
             <ItemYear>December 2013 - July 2016</ItemYear>
             <ItemRole>iOS, Android, Unity 2D</ItemRole>
-            <ProjectList data={result['layerlab']} />
+            <ProjectList data={result['layerlab']} dataType="career" />
           </ItemContainer>
         </StyledLi>
         <StyledLi>
@@ -73,7 +73,7 @@ const CareerPresenter = ({ data }) => {
             <ItemHeader>Motion Blue</ItemHeader>
             <ItemYear>May 2011 - May 2013</ItemYear>
             <ItemRole>iOS, Android</ItemRole>
-            <ProjectList data={result['motionblue']} />
+            <ProjectList data={result['motionblue']} dataType="career" />
           </ItemContainer>
         </StyledLi>
       </StyledUl>

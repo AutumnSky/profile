@@ -1,6 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +16,7 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   width: 100%;
   height: 300px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,23 +47,26 @@ const ProjectName = styled.h4`
   margin-bottom: 10px;
 `;
 
-const ProjectItem = ({ data }) => (
-  <Container>
-    {data.screenshot.length > 0 ? (
-      <ImageContainer>
-        <Image src={`${process.env.REACT_APP_IMG_PATH}/${data.screenshot[0]}`} />
-      </ImageContainer>
-    ) : (
-      <NotFoundImageContainer>
-        <NotFoundImage src={`${process.env.REACT_APP_IMG_PATH}/default.png`} alt="noimage" />
-      </NotFoundImageContainer>
-    )}
-    <ProjectName>{data.projectName.en}</ProjectName>
-  </Container>
+const ProjectItem = ({ data, dataType }) => (
+  <Link to={`/detail/${dataType}/${data._id}`}>
+    <Container>
+      {data.screenshot.length > 0 ? (
+        <ImageContainer>
+          <Image src={`${process.env.REACT_APP_IMG_PATH}/${data.screenshot[0]}`} />
+        </ImageContainer>
+      ) : (
+        <NotFoundImageContainer>
+          <NotFoundImage src={`${process.env.REACT_APP_IMG_PATH}/default.png`} alt="noimage" />
+        </NotFoundImageContainer>
+      )}
+      <ProjectName>{data.projectName.en}</ProjectName>
+    </Container>
+  </Link>
 );
 
-ProjectItem.propTypes = {
-  data: propTypes.object.isRequired
-};
-
 export default ProjectItem;
+
+ProjectItem.propTypes = {
+  data: propTypes.object.isRequired,
+  dataType: propTypes.string.isRequired
+};

@@ -10,12 +10,13 @@ const Grid = styled.div`
   grid-row-gap: 20px;
 `;
 
-const ProjectList = ({ data }) => (
-  <Grid>{data.map((portfolio) => <ProjectItem key={portfolio._id} data={portfolio} />)}</Grid>
+const ProjectList = ({ data, dataType }) => (
+  <Grid>{data.map((portfolio) => <ProjectItem key={portfolio._id} data={portfolio} dataType={dataType} />)}</Grid>
 );
 
 ProjectList.propTypes = {
-  data: propTypes.array.isRequired
+  data: propTypes.array.isRequired,
+  dataType: propTypes.string.isRequired
 };
 
 export default ProjectList;
