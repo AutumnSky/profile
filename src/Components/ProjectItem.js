@@ -1,5 +1,4 @@
 import React from 'react';
-import propTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -11,6 +10,7 @@ const Container = styled.div`
   padding: 10px;
   background-color: ${(props) => props.theme.portfolioBackground};
   border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 `;
 
 const ImageContainer = styled.div`
@@ -26,6 +26,7 @@ const Image = styled.img`
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px;
+  border: 1px solid ${(props) => props.theme.fontLight};
 `;
 
 const NotFoundImageContainer = styled.div`
@@ -67,6 +68,6 @@ const ProjectItem = ({ data, dataType }) => (
 export default ProjectItem;
 
 ProjectItem.propTypes = {
-  data: propTypes.object.isRequired,
-  dataType: propTypes.string.isRequired
+  data: PropTypes.object.isRequired,
+  dataType: PropTypes.string.isRequired
 };
