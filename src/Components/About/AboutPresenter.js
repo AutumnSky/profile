@@ -26,13 +26,10 @@ const ItemHeader = styled.span`
   margin-bottom: 30px;
 `;
 
-const Item = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const Item = styled.div`display: flex;`;
 
 const ItemTitle = styled.span`
-  display: block;
+  width: 5rem;
   color: ${(props) => props.theme.mainDark};
   font-size: 18px;
   font-weight: 500;
@@ -56,13 +53,22 @@ const ItemLink = styled.a`
   margin-bottom: 20px;
 `;
 
+const EducationTitle = styled.span`
+  display: block;
+  color: ${(props) => props.theme.mainDark};
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-bottom: 20px;
+`;
+
 export default () => (
   <ThemeProvider theme={theme}>
     <StyledUl>
       <StyledLi>
         {/* I'm */}
         <ItemContainer>
-          <ItemHeader>I'm...</ItemHeader>
+          <ItemHeader>I am</ItemHeader>
           <Item>
             <ItemTitle>Name</ItemTitle>
             <ItemContent>Minjeong Kim</ItemContent>
@@ -85,7 +91,7 @@ export default () => (
       <StyledLi>
         <ItemContainer>
           <ItemHeader>Education</ItemHeader>
-          <ItemTitle>The Catholic University of Korea</ItemTitle>
+          <EducationTitle>The Catholic University of Korea</EducationTitle>
           <ItemContent>February 2007 - August 2011</ItemContent>
           <ItemContent>Bachelor of Computer Science</ItemContent>
         </ItemContainer>
