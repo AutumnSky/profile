@@ -23,7 +23,7 @@ const Item = styled.div`
 
 const Image = styled.img`
   height: 50vh;
-  max-width: 100%;
+  max-width: 80%;
   max-height: 100%;
   border-radius: 5px;
   border: 1px solid ${(props) => props.theme.fontLight};

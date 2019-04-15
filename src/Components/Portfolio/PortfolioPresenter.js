@@ -7,7 +7,7 @@ import propTypes from 'prop-types';
 const PortfolioPresenter = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
-      <ProjectList data={data} />
+      <ProjectList data={data} dataType="portfolio" />
     </ThemeProvider>
   );
 };

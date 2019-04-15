@@ -50,15 +50,26 @@ class ProjectDetail extends React.Component {
   }
 
   loadData = async () => {
-    const { id } = this.state;
-    const { data } = await api.getWorkPortfolioById(id);
+    const { id, type } = this.state;
+    let res;
+    if (type === 'career') {
+      res = await api.getWorkPortfolioById(id);
+    } else if (type === 'personal') {
+      res = await api.getPersonalProjectById(id);
+    } else if (type === 'portfolio') {
+      res = await api.getPortfolioById(id);
+    }
+    console.log('data', res.data);
     this.setState({
-      data
+      data: res.data
     });
   };
 
   render() {
     const { data } = this.state;
+    if (data) {
+      console.log('data.screenshot', data.screenshot);
+    }
     return !data ? (
       <Loader />
     ) : (

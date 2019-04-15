@@ -6,8 +6,10 @@ const api = axios.create({
 });
 
 export const getPortfolios = () => api.get('portfolios');
+export const getPortfolioById = (id) => api.get(`portfolio/${id}`);
 
 export const getWorkPortfolios = () => api.get('workportfolios');
 export const getWorkPortfolioById = (id) => api.get(`workportfolio/${id}`);
 
 export const getPersonalProjects = () => api.get('personalprojects');
+export const getPersonalProjectById = (id) => api.get(`personalproject/${id}`);
