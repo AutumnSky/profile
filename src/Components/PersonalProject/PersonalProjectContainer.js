@@ -18,7 +18,6 @@ class PersonalProjectContainer extends React.Component {
   loadData = async () => {
     try {
       const { data } = await api.getPersonalProjects();
-      console.log(data);
       this.setState({ data });
     } catch (error) {
       this.setState({ error: error });
