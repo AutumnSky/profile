@@ -81,7 +81,10 @@ export default withRouter((props) => {
           </Link>
         </NameContainer>
         <MenuContainer>
-          <MenuItem isCurrent={pathname === '/' || pathname.includes('career')}>
+          <MenuItem isCurrent={pathname === '/' || pathname.includes('about')}>
+            <SLink to="/about">About</SLink>
+          </MenuItem>
+          <MenuItem isCurrent={pathname.includes('career')}>
             <SLink to="/career">Career</SLink>
           </MenuItem>
           <MenuItem isCurrent={pathname.includes('personalproject')}>
@@ -89,9 +92,6 @@ export default withRouter((props) => {
           </MenuItem>
           <MenuItem isCurrent={pathname.includes('portfolio')}>
             <SLink to="/portfolio">Portfolio</SLink>
-          </MenuItem>
-          <MenuItem isCurrent={pathname.includes('about')}>
-            <SLink to="/about">About</SLink>
           </MenuItem>
         </MenuContainer>
       </Container>

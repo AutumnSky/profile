@@ -5,6 +5,8 @@ const api = axios.create({
   timeout: 1000
 });
 
+export const helloWorld = () => api.get('/');
+
 export const getPortfolios = () => api.get('portfolios');
 export const getPortfolioById = (id) => api.get(`portfolio/${id}`);
 
