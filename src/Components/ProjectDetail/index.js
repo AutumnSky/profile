@@ -59,7 +59,7 @@ class ProjectDetail extends React.Component {
     } else if (type === 'portfolio') {
       res = await api.getPortfolioById(id);
     }
-    console.log('data', res.data);
+    
     this.setState({
       data: res.data
     });
@@ -67,9 +67,7 @@ class ProjectDetail extends React.Component {
 
   render() {
     const { data } = this.state;
-    if (data) {
-      console.log('data.screenshot', data.screenshot);
-    }
+    
     return !data ? (
       <Loader />
     ) : (
@@ -95,6 +93,16 @@ class ProjectDetail extends React.Component {
               <DescTitle>Participation</DescTitle>
               <DescContent>{data.participation}%</DescContent>
             </DescItem>
+            {data.link && data.link.web && (
+              <DescItem>
+              <DescTitle>Link</DescTitle>
+              <DescContent>
+                <a target="_blank" rel="noopener noreferrer" href={data.link.web}>
+                  {data.link.web}
+                </a>
+              </DescContent>
+            </DescItem>
+            )}
             {data.link &&
             data.link.iOS && (
               <DescItem>

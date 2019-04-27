@@ -6,25 +6,37 @@ import { Icon } from 'antd';
 
 const Container = styled.div`
   width: 100%;
-  position: relative;
   align-self: center;
   background-color: ${(props) => props.theme.portfolioBackground};
   border-radius: 10px;
   padding: 20px;
   border: 3px solid ${(props) => props.theme.fontLight};
+  display: flex;
+  flex-direction: column;
 `;
 
-const Item = styled.div`
-  width: 100%;
-  height: 100%;
+const ImageArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ArrowCol = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+`;
+
+const ImageContainer = styled.div`
+  flex-grow: 1;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Image = styled.img`
-  height: 50vh;
-  max-width: 80%;
-  max-height: 100%;
+  max-width: 100%;
+  max-height: 30vh;
   border-radius: 5px;
   border: 1px solid ${(props) => props.theme.fontLight};
 `;
@@ -41,23 +53,17 @@ const Button = styled.button`
 `;
 
 const PrevButton = styled(Button)`
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
+  
 `;
 
 const NextButton = styled(Button)`
-  position: absolute;
-  right: 20px;
-  top: 0;
-  bottom: 0;
+  
 `;
 
-const Page = styled.div`
+const PageArea = styled.div`
   font-size: 0.8rem;
   color: ${(props) => props.theme.fontDesc};
-  padding: 1rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
 `;
@@ -92,18 +98,25 @@ class SlideShow extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Container>
-          <PrevButton onClick={this.handlePrev}>
-            <Icon type="left" />
-          </PrevButton>
-          <Item>
-            <Image src={`${process.env.REACT_APP_IMG_PATH}/${images[currentIndex]}`} />
-          </Item>
-          <NextButton onClick={this.handleNext}>
-            <Icon type="right" />
-          </NextButton>
-          <Page>
+          <ImageArea>
+            <ArrowCol>
+              <PrevButton onClick={this.handlePrev}>
+                <Icon type="left" />
+              </PrevButton>
+            </ArrowCol>  
+            <ImageContainer>
+              <Image src={`${process.env.REACT_APP_IMG_PATH}/${images[currentIndex]}`}></Image>
+            </ImageContainer>
+            <ArrowCol>
+              <NextButton onClick={this.handleNext}>
+                <Icon type="right" />
+              </NextButton>
+            </ArrowCol>  
+          </ImageArea>
+          
+          <PageArea>
             {currentIndex + 1} / {images.length}
-          </Page>
+          </PageArea>
         </Container>
       </ThemeProvider>
     );
