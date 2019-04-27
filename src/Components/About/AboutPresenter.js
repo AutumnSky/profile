@@ -120,14 +120,16 @@ export default () => (
             </ItemLink>
           </Item>
           <Item>
-            <ItemTitle>Tech Note</ItemTitle>
-            <ItemLink href="https://cafe.naver.com/lolmzkim" target="_blank">
-              https://cafe.naver.com/lolmzkim
+            <ItemTitle>Notes</ItemTitle>
+            <ItemLink href="https://medium.com/autumnpage" target="_blank">
+              https://medium.com/autumnpage
             </ItemLink>
           </Item>
           <Item>
             <ItemTitle>Youtube</ItemTitle>
-            <ItemLink href="https://cafe.naver.com/lolmzkim">https://www.youtube.com/user/capu1004</ItemLink>
+            <ItemLink href="https://www.youtube.com/user/capu1004">
+              https://www.youtube.com/user/capu1004
+            </ItemLink>
           </Item>
         </ItemContainer>
       </StyledLi>
