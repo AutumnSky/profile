@@ -1,9 +1,9 @@
-import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from 'Theme';
-import * as api from 'api';
-import Loader from 'Components/Loader';
-import SlideShow from 'Components/SlideShow';
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "Theme";
+import * as api from "api";
+import Loader from "Components/Loader";
+import SlideShow from "Components/SlideShow";
 
 const Container = styled.div`
   display: flex;
@@ -29,12 +29,12 @@ const DescTitle = styled.span`
   width: 120px;
   font-size: 1rem;
   font-weight: 600;
-  color: ${(props) => props.theme.main};
+  color: ${props => props.theme.main};
 `;
 
 const DescContent = styled.span`
   flex-grow: 1;
-  color: ${(props) => props.theme.fontDesc};
+  color: ${props => props.theme.fontDesc};
 `;
 
 class ProjectDetail extends React.Component {
@@ -52,14 +52,14 @@ class ProjectDetail extends React.Component {
   loadData = async () => {
     const { id, type } = this.state;
     let res;
-    if (type === 'career') {
+    if (type === "career") {
       res = await api.getWorkPortfolioById(id);
-    } else if (type === 'personal') {
+    } else if (type === "personal") {
       res = await api.getPersonalProjectById(id);
-    } else if (type === 'portfolio') {
+    } else if (type === "portfolio") {
       res = await api.getPortfolioById(id);
     }
-    
+    console.log(res);
     this.setState({
       data: res.data
     });
@@ -67,7 +67,7 @@ class ProjectDetail extends React.Component {
 
   render() {
     const { data } = this.state;
-    
+
     return !data ? (
       <Loader />
     ) : (
@@ -87,7 +87,7 @@ class ProjectDetail extends React.Component {
             </DescItem>
             <DescItem>
               <DescTitle>Role</DescTitle>
-              <DescContent>{data.role.join(', ')}</DescContent>
+              <DescContent>{data.role.join(", ")}</DescContent>
             </DescItem>
             <DescItem>
               <DescTitle>Participation</DescTitle>
@@ -95,27 +95,33 @@ class ProjectDetail extends React.Component {
             </DescItem>
             {data.link && data.link.web && (
               <DescItem>
-              <DescTitle>Link</DescTitle>
-              <DescContent>
-                <a target="_blank" rel="noopener noreferrer" href={data.link.web}>
-                  {data.link.web}
-                </a>
-              </DescContent>
-            </DescItem>
+                <DescTitle>Link</DescTitle>
+                <DescContent>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={data.link.web}
+                  >
+                    {data.link.web}
+                  </a>
+                </DescContent>
+              </DescItem>
             )}
-            {data.link &&
-            data.link.iOS && (
+            {data.link && data.link.iOS && (
               <DescItem>
                 <DescTitle>iOS Link</DescTitle>
                 <DescContent>
-                  <a target="_blank" rel="noopener noreferrer" href={data.link.iOS}>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={data.link.iOS}
+                  >
                     {data.link.iOS}
                   </a>
                 </DescContent>
               </DescItem>
             )}
-            {data.link &&
-            data.link.Android && (
+            {data.link && data.link.Android && (
               <DescItem>
                 <DescTitle>Android Link</DescTitle>
                 <DescContent>{data.link.android}</DescContent>
