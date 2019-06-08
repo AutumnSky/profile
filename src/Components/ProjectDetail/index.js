@@ -6,10 +6,11 @@ import Loader from "Components/Loader";
 import SlideShow from "Components/SlideShow";
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  margin-top: 10px;
+  max-width: 800px;
+  min-height: 80vh;
+  background-color: white;
+  padding: 2rem;
 `;
 
 const DescContainer = styled.div`
@@ -68,68 +69,72 @@ class ProjectDetail extends React.Component {
   render() {
     const { data } = this.state;
 
-    return !data ? (
-      <Loader />
-    ) : (
-      <ThemeProvider theme={theme}>
-        <Container>
-          <SlideShow images={data.screenshot} />
-          <DescContainer>
-            <DescItem>
-              <DescTitle>Name</DescTitle>
-              <DescContent>{data.projectName.en}</DescContent>
-            </DescItem>
-            <DescItem>
-              <DescTitle>Date</DescTitle>
-              <DescContent>
-                {data.from} ~ {data.to}
-              </DescContent>
-            </DescItem>
-            <DescItem>
-              <DescTitle>Role</DescTitle>
-              <DescContent>{data.role.join(", ")}</DescContent>
-            </DescItem>
-            <DescItem>
-              <DescTitle>Participation</DescTitle>
-              <DescContent>{data.participation}%</DescContent>
-            </DescItem>
-            {data.link && data.link.web && (
-              <DescItem>
-                <DescTitle>Link</DescTitle>
-                <DescContent>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={data.link.web}
-                  >
-                    {data.link.web}
-                  </a>
-                </DescContent>
-              </DescItem>
-            )}
-            {data.link && data.link.iOS && (
-              <DescItem>
-                <DescTitle>iOS Link</DescTitle>
-                <DescContent>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={data.link.iOS}
-                  >
-                    {data.link.iOS}
-                  </a>
-                </DescContent>
-              </DescItem>
-            )}
-            {data.link && data.link.Android && (
-              <DescItem>
-                <DescTitle>Android Link</DescTitle>
-                <DescContent>{data.link.android}</DescContent>
-              </DescItem>
-            )}
-          </DescContainer>
-        </Container>
-      </ThemeProvider>
+    return (
+      <Container>
+        {!data ? (
+          <Loader />
+        ) : (
+          <ThemeProvider theme={theme}>
+            <React.Fragment>
+              <SlideShow images={data.screenshot} />
+              <DescContainer>
+                <DescItem>
+                  <DescTitle>Name</DescTitle>
+                  <DescContent>{data.projectName.en}</DescContent>
+                </DescItem>
+                <DescItem>
+                  <DescTitle>Date</DescTitle>
+                  <DescContent>
+                    {data.from} ~ {data.to}
+                  </DescContent>
+                </DescItem>
+                <DescItem>
+                  <DescTitle>Role</DescTitle>
+                  <DescContent>{data.role.join(", ")}</DescContent>
+                </DescItem>
+                <DescItem>
+                  <DescTitle>Participation</DescTitle>
+                  <DescContent>{data.participation}%</DescContent>
+                </DescItem>
+                {data.link && data.link.web && (
+                  <DescItem>
+                    <DescTitle>Link</DescTitle>
+                    <DescContent>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={data.link.web}
+                      >
+                        {data.link.web}
+                      </a>
+                    </DescContent>
+                  </DescItem>
+                )}
+                {data.link && data.link.iOS && (
+                  <DescItem>
+                    <DescTitle>iOS Link</DescTitle>
+                    <DescContent>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={data.link.iOS}
+                      >
+                        {data.link.iOS}
+                      </a>
+                    </DescContent>
+                  </DescItem>
+                )}
+                {data.link && data.link.Android && (
+                  <DescItem>
+                    <DescTitle>Android Link</DescTitle>
+                    <DescContent>{data.link.android}</DescContent>
+                  </DescItem>
+                )}
+              </DescContainer>
+            </React.Fragment>
+          </ThemeProvider>
+        )}
+      </Container>
     );
   }
 }

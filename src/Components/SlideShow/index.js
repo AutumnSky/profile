@@ -96,7 +96,7 @@ class SlideShow extends React.Component {
           <ImageArea>
             <ArrowCol>
               <PrevButton onClick={this.handlePrev}>
-                {/* TODO: <Icon type="left" /> */}
+                <i class="fas fa-chevron-left" />
               </PrevButton>
             </ArrowCol>
             <ImageContainer>
@@ -108,7 +108,7 @@ class SlideShow extends React.Component {
             </ImageContainer>
             <ArrowCol>
               <NextButton onClick={this.handleNext}>
-                {/* TODO: <Icon type="right" /> */}
+                <i class="fas fa-chevron-right" />
               </NextButton>
             </ArrowCol>
           </ImageArea>
