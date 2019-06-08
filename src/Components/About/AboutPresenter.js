@@ -1,138 +1,123 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import theme from 'Theme';
-import styled from 'styled-components';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import theme from "Theme";
+import styled from "styled-components";
 
-const StyledUl = styled.ul`
-  &:not(:last-child) {
-    margin-bottom: 100px;
-  }
-`;
-
-const StyledLi = styled.li`
-  margin-bottom: 50px;
-  list-style-type: disc;
-`;
-
-const ItemContainer = styled.div`
+const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  background-color: white;
+  padding: 2rem;
 `;
 
-const ItemHeader = styled.span`
-  color: ${(props) => props.theme.main};
-  font-size: 22px;
-  font-weight: 600;
+const ProfileImage = styled.img`
+  width: 30vw;
+  height: 30vw;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
   margin-bottom: 30px;
 `;
 
-const Item = styled.div`display: flex;`;
+const DescContainer = styled.div``;
 
-const ItemTitle = styled.span`
-  width: 5rem;
-  color: ${(props) => props.theme.mainDark};
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 20px;
-  margin-bottom: 20px;
+const DescItem = styled.div``;
+
+const DescTitle = styled.h2`
+  color: ${props => props.theme.fontItemTitle};
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
-const ItemContent = styled.span`
-  color: ${(props) => props.theme.fontDesc};
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 80px;
-  margin-bottom: 20px;
-`;
+const DescContent = styled.p`
+  color: ${props => props.theme.fontItemContent};
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8rem;
+  margin-bottom: 2rem;
 
-const ItemLink = styled.a`
-  color: ${(props) => props.theme.fontDesc};
-  font-size: 16px;
-  font-weight: 500;
-  margin-left: 80px;
-  margin-bottom: 20px;
-`;
+  & .amph {
+    color: red;
+  }
 
-const EducationTitle = styled.span`
-  display: block;
-  color: ${(props) => props.theme.mainDark};
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  & h3 {
+    color: #3498db;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-left: 10px;
+  }
+
+  & p {
+    margin-bottom: 1.5rem;
+    margin-left: 20px;
+  }
 `;
 
 export default () => (
   <ThemeProvider theme={theme}>
-    <StyledUl>
-      <StyledLi>
-        {/* I'm */}
-        <ItemContainer>
-          <ItemHeader>I am</ItemHeader>
-          <Item>
-            <ItemTitle>Name</ItemTitle>
-            <ItemContent>Minjeong Kim</ItemContent>
-          </Item>
-          <Item>
-            <ItemTitle>Nickname</ItemTitle>
-            <ItemContent>autumn</ItemContent>
-          </Item>
-          <Item>
-            <ItemTitle>Doing...</ItemTitle>
-            <ItemContent>iOS, Android, Unity(2D), Node.js, React</ItemContent>
-          </Item>
-          <Item>
-            <ItemTitle>Contact</ItemTitle>
-            <ItemContent>doingnone@gmail.com</ItemContent>
-          </Item>
-        </ItemContainer>
-      </StyledLi>
-      {/* Education */}
-      <StyledLi>
-        <ItemContainer>
-          <ItemHeader>Education</ItemHeader>
-          <EducationTitle>The Catholic University of Korea</EducationTitle>
-          <ItemContent>February 2007 - August 2011</ItemContent>
-          <ItemContent>Bachelor of Computer Science</ItemContent>
-        </ItemContainer>
-      </StyledLi>
-
-      {/* Links */}
-      <StyledLi>
-        <ItemContainer>
-          <ItemHeader>Links</ItemHeader>
-          <Item>
-            <ItemTitle>Linked In</ItemTitle>
-            <ItemLink href="https://www.linkedin.com/in/autumnsky" target="_blank">
-              https://www.linkedin.com/in/autumnsky
-            </ItemLink>
-          </Item>
-          <Item>
-            <ItemTitle>Github</ItemTitle>
-            <ItemLink href="https://github.com/autumnsky" target="_blank">
-              https://github.com/autumnsky
-            </ItemLink>
-          </Item>
-          <Item>
-            <ItemTitle>Blog</ItemTitle>
-            <ItemLink href="https://blog.naver.com/capu1004" target="_blank">
-              https://blog.naver.com/capu1004
-            </ItemLink>
-          </Item>
-          <Item>
-            <ItemTitle>Notes</ItemTitle>
-            <ItemLink href="https://medium.com/autumnpage" target="_blank">
-              https://medium.com/autumnpage
-            </ItemLink>
-          </Item>
-          <Item>
-            <ItemTitle>Youtube</ItemTitle>
-            <ItemLink href="https://www.youtube.com/user/capu1004">
-              https://www.youtube.com/user/capu1004
-            </ItemLink>
-          </Item>
-        </ItemContainer>
-      </StyledLi>
-    </StyledUl>
+    <AboutContainer>
+      <ProfileImage src="https://autumnportfolio.s3.ap-northeast-2.amazonaws.com/me/IMG_3752.png" />
+      <DescContainer>
+        <DescItem>
+          <DescContent>
+            I've been working as a Mobile App Developer for more than 8 years
+            but now I'm also doing frontend and backend side of Web. And I'm
+            continuously learning everyday.
+            <br />
+            Active, Creative, Passionate, Independent, Honest and Faithful.
+          </DescContent>
+        </DescItem>
+        <DescItem>
+          <DescTitle>Skills</DescTitle>
+          <DescContent>
+            <h3>Mobile Development</h3>
+            <p>
+              iOS, Android
+              <br />
+              CocoaPods, Cocos2D
+              <br />
+              Unity3D exports to iOS / Android
+              <br />
+              Hybrid App, Push Notification, Connect with Payment System
+            </p>
+            <h3>Web Development</h3>
+            <p>
+              React, React Native
+              <br />
+              Node.js
+              <br />
+              MongoDB, MySQL
+            </p>
+          </DescContent>
+        </DescItem>
+        <DescItem>
+          <DescTitle>Hire Me</DescTitle>
+          <DescContent>
+            I am currently studying English in Ireland and looking for a job in
+            the Fullstack Developer position. Both Frontend and Backend are
+            possible. I am good at developing best-experience clients based on
+            many years of experience in mobile app development. There is no
+            resistance to new knowledge and skills, and with a solid knowledge
+            of computer science, learning and adapting quickly. I'm respect
+            other's opinions and good at talking. I always try to learn with an
+            active attitude without losing my curiosity.
+            <br />
+            You can contacted me by email or mobile at anytime.
+          </DescContent>
+        </DescItem>
+        <DescItem>
+          <DescTitle>Contact</DescTitle>
+          <DescContent>
+            doingnone@gmail.com
+            <br />
+            +353 (83) 325 0798
+          </DescContent>
+        </DescItem>
+      </DescContainer>
+    </AboutContainer>
   </ThemeProvider>
 );

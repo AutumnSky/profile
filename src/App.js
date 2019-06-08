@@ -11,7 +11,10 @@ import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 
 const Body = styled.div`
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ecf0f1;
 `;
 
 class App extends Component {
