@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import theme from "../Theme";
 import { Navbar, Nav } from "react-bootstrap";
 
 export default withRouter(props => {
