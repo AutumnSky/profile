@@ -59,7 +59,7 @@ class ProjectDetail extends React.Component {
     } else if (type === "portfolio") {
       res = await api.getPortfolioById(id);
     }
-    console.log(res);
+
     this.setState({
       data: res.data
     });

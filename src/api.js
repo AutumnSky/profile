@@ -23,7 +23,7 @@ export const getPortfolios = () =>
 
 export const getPortfolioById = id =>
   api
-    .get("portfolio")
+    .get(`portfolio/${id}`)
     .then(function(response) {
       return response;
     })
@@ -47,7 +47,7 @@ export const getWorkPortfolios = () =>
 
 export const getWorkPortfolioById = id =>
   api
-    .get("workportfolio")
+    .get(`workportfolio/${id}`)
     .then(function(response) {
       return response;
     })
@@ -71,7 +71,7 @@ export const getPersonalProjects = () =>
 
 export const getPersonalProjectById = id =>
   api
-    .get("personalproject")
+    .get(`personalproject/${id}`)
     .then(function(response) {
       return response;
     })

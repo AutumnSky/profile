@@ -8,7 +8,7 @@
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
     "deploy:github": "yarn build && gh-pages -d build",
-    "deploy:s3": "yarn build && aws s3 sync build/ s3://portfolioclient"
+    "deploy:s3": "yarn build && aws s3 sync build/ s3://www.autumnpage.com"
   },
   "dependencies": {
     "antd": "^3.16.2",
