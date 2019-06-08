@@ -1,100 +1,42 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from '../Theme';
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import theme from "../Theme";
+import { Navbar, Nav } from "react-bootstrap";
 
-const Container = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-`;
-
-const NameContainer = styled.div`
-  background-color: ${(props) => props.theme.mainDark};
-  padding: 20px 30px;
-`;
-
-const Name = styled.span`
-  display: inline-block;
-  font-size: 26px;
-  color: ${(props) => props.theme.font};
-  margin-right: 10px;
-`;
-
-const NickName = styled.span`
-  display: inline-block;
-  font-size: 18px;
-  color: ${(props) => props.theme.fontLight};
-`;
-
-const MenuContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: ${(props) => props.theme.main};
-  padding: 0px 30px;
-`;
-
-const MenuItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  width: 80px;
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-
-  border-bottom: 5px solid ${(props) => (props.isCurrent ? 'rgba(255, 255, 255, 0.7)' : 'transparent')};
-  transition: border-bottom 0.3s ease-in-out;
-`;
-
-const SLink = styled(Link)`
-  color: ${(props) => props.theme.fontLight};
-  text-decoration: none;
-  font-size: 16px;
-  text-align: center;
-`;
-
-// const MenuLine = styled.div`
-//   width: 80px;
-//   height: 5px;
-//   background-color: ${(props) => props.theme.fontLight};
-//   opacity: 0.8;
-//   position: absolute;
-//   left: 0;
-//   bottom: 0;
-// `;
-
-export default withRouter((props) => {
-  const { location: { pathname } } = props;
+export default withRouter(props => {
+  const {
+    location: { pathname }
+  } = props;
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container>
-        <NameContainer>
-          <Link to="/">
-            <Name>Minjeong Kim</Name>
-            <NickName>(autumn)</NickName>
-          </Link>
-        </NameContainer>
-        <MenuContainer>
-          <MenuItem isCurrent={pathname === '/' || pathname.includes('about')}>
-            <SLink to="/about">About</SLink>
-          </MenuItem>
-          <MenuItem isCurrent={pathname.includes('career')}>
-            <SLink to="/career">Career</SLink>
-          </MenuItem>
-          <MenuItem isCurrent={pathname.includes('personalproject')}>
-            <SLink to="/personalproject">Personal Proejct</SLink>
-          </MenuItem>
-          <MenuItem isCurrent={pathname.includes('portfolio')}>
-            <SLink to="/portfolio">Portfolio</SLink>
-          </MenuItem>
-        </MenuContainer>
-      </Container>
-    </ThemeProvider>
+    <Navbar bg="dark" variant="dark" expand="md">
+      <Navbar.Brand>
+        <Link to="/">Minjeong Kim (Autumn)</Link>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link
+            className={
+              pathname === "/" || pathname.includes("about") ? "active" : ""
+            }
+          >
+            <Link to="/about">About</Link>
+          </Nav.Link>
+          <Nav.Link className={pathname.includes("career") ? "active" : ""}>
+            <Link to="/career">Career</Link>
+          </Nav.Link>
+          <Nav.Link
+            className={pathname.includes("personalproject") ? "active" : ""}
+          >
+            <Link to="/personalproject">Personal Projects</Link>
+          </Nav.Link>
+          <Nav.Link className={pathname.includes("portfolio") ? "active" : ""}>
+            <Link to="/portfolio">Portfolios</Link>
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 });

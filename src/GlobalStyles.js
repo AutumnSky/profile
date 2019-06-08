@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const globalStyles = createGlobalStyle`
     ${reset}
@@ -15,6 +15,16 @@ const globalStyles = createGlobalStyle`
     a {
         text-decoration: none;
         color: inherit;
+        &:hover, &:focus {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+    button {
+        &:focus {
+            outline: none;
+        }
     }
 `;
 
