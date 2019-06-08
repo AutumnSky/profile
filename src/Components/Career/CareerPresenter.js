@@ -1,8 +1,8 @@
-import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from 'Theme';
-import propTypes from 'prop-types';
-import ProjectList from '../ProjectList';
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "Theme";
+import propTypes from "prop-types";
+import ProjectList from "../ProjectList";
 
 const StyledUl = styled.ul``;
 
@@ -17,14 +17,14 @@ const ItemContainer = styled.div`
 `;
 
 const ItemHeader = styled.span`
-  color: ${(props) => props.theme.main};
+  color: ${props => props.theme.main};
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 20px;
 `;
 
 const ItemYear = styled.span`
-  color: ${(props) => props.theme.fontDesc};
+  color: ${props => props.theme.fontDesc};
   font-size: 18px;
   font-weight: 500;
   margin-left: 20px;
@@ -32,7 +32,7 @@ const ItemYear = styled.span`
 `;
 
 const ItemRole = styled.p`
-  color: ${(props) => props.theme.fontDesc};
+  color: ${props => props.theme.fontDesc};
   font-size: 18px;
   font-weight: 500;
   margin-left: 20px;
@@ -41,7 +41,7 @@ const ItemRole = styled.p`
 
 const CareerPresenter = ({ data }) => {
   const result = data.reduce((totalData, currentData) => {
-    const key = currentData['company'];
+    const key = currentData["company"];
     if (!totalData[key]) {
       totalData[key] = [];
     }
@@ -57,7 +57,7 @@ const CareerPresenter = ({ data }) => {
             <ItemHeader>Freelancer</ItemHeader>
             <ItemYear>July 2016 - Present</ItemYear>
             <ItemRole>Learning FullStack, iOS, Android, Unity 2D</ItemRole>
-            <ProjectList data={result['freelancer']} dataType="career" />
+            <ProjectList data={result["freelancer"]} dataType="career" />
           </ItemContainer>
         </StyledLi>
         <StyledLi>
@@ -65,7 +65,7 @@ const CareerPresenter = ({ data }) => {
             <ItemHeader>Layer Lab</ItemHeader>
             <ItemYear>December 2013 - July 2016</ItemYear>
             <ItemRole>iOS, Android, Unity 2D</ItemRole>
-            <ProjectList data={result['layerlab']} dataType="career" />
+            <ProjectList data={result["layerlab"]} dataType="career" />
           </ItemContainer>
         </StyledLi>
         <StyledLi>
@@ -73,7 +73,7 @@ const CareerPresenter = ({ data }) => {
             <ItemHeader>Motion Blue</ItemHeader>
             <ItemYear>May 2011 - May 2013</ItemYear>
             <ItemRole>iOS, Android</ItemRole>
-            <ProjectList data={result['motionblue']} dataType="career" />
+            <ProjectList data={result["motionblue"]} dataType="career" />
           </ItemContainer>
         </StyledLi>
       </StyledUl>

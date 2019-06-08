@@ -1,8 +1,17 @@
-import React from 'react';
-import CareerPresenter from './CareerPresenter';
-import * as api from 'api';
-import Loader from 'Components/Loader';
-import Message from 'Components/Message';
+import React from "react";
+import CareerPresenter from "./CareerPresenter";
+import * as api from "api";
+import Loader from "Components/Loader";
+import Message from "Components/Message";
+import styled from "styled-components";
+
+const ContainerDiv = styled.div`
+  width: 100%;
+  max-width: 800px;
+  min-height: 80vh;
+  background-color: white;
+  padding: 2rem;
+`;
 
 class CareerContainer extends React.Component {
   state = {
@@ -30,11 +39,11 @@ class CareerContainer extends React.Component {
     const { error, isLoading, data } = this.state;
 
     return (
-      <React.Fragment>
+      <ContainerDiv>
         {isLoading && <Loader />}
         {error && <Message message={error} />}
         {data && <CareerPresenter data={data} />}
-      </React.Fragment>
+      </ContainerDiv>
     );
   }
 }
