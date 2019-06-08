@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import About from "./Components/About";
 import PersonalProject from "./Components/PersonalProject";
 import Career from "./Components/Career";
@@ -34,6 +35,7 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
           </Body>
+          <Footer />
           <GlobalStyles />
         </Fragment>
       </Router>
