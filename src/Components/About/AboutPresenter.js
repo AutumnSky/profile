@@ -97,16 +97,13 @@ export default () => (
         <DescItem>
           <DescTitle>Hire Me</DescTitle>
           <DescContent>
-            I am currently studying English in Ireland and looking for a job in
-            the Fullstack Developer position. Both Frontend and Backend are
-            possible. I am good at developing best-experience clients based on
-            many years of experience in mobile app development. There is no
-            resistance to new knowledge and skills, and with a solid knowledge
-            of computer science, learning and adapting quickly. I'm respect
-            other's opinions and good at talking. I always try to learn with an
-            active attitude without losing my curiosity.
-            <br />
-            You can contacted me by email or mobile at anytime.
+            I am currently studying English in Ireland and looking for a Mobile/
+            Full-stack Developer position. I have excellent development skills
+            including iOS, Android, Frontend and Backend based on many years of
+            experience in mobile app development. With a solid knowledge of
+            computer science, I learn and adapt quickly to new concepts and
+            technologies. I respect other's opinions and am a good communicator.
+            You can contact me by email or mobile at any time.
           </DescContent>
         </DescItem>
         <DescItem>
